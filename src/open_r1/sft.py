@@ -38,7 +38,8 @@ accelerate launch --config_file=recipes/accelerate_configs/zero3.yaml src/open_r
 import logging
 import os
 import sys
-
+sys.path.append('/data/liangjh/open-r1/src/open_r1')
+sys.path.append('/data/liangjh/open-r1/src')
 import datasets
 import torch
 import transformers
@@ -100,7 +101,7 @@ def main(script_args, training_args, model_args):
     ################
     # Load datasets
     ################
-    dataset = load_dataset(script_args.dataset_name, name=script_args.dataset_config)
+    dataset = load_dataset(script_args.dataset_name, name=script_args.dataset_config, cache_dir="/data/liangjh/model_set/datasets")
 
     ################
     # Load tokenizer
